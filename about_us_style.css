@@ -1,0 +1,149 @@
+/* --- ABOUT US Page Specific Styles --- */
+
+/* 1. Overall Layout */
+.page-container {
+    /* Assuming the whole page background is the dark brown from the header */
+    background-color: #492E20; 
+    min-height: 100vh;
+}
+
+/* 2. Header/Navbar adjustments for this page */
+.navbar {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 10; /* Ensure it's on top of everything */
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #333; /* Default dark color */
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Styling the first 'Home' button differently as per the image */
+.navbar nav ul li:first-child a {
+    background-color: #EDE8E1; /* Light beige background for 'Home' */
+    color: #333; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar nav ul li:not(:first-child) a {
+    color: #EDE8E1; /* Light text for the other links on the dark background */
+}
+
+/* Hover effect */
+.navbar nav ul li a:hover {
+    background-color: rgba(237, 232, 225, 0.8);
+    color: #333;
+}
+.logo-top-left {
+    position: static; /* Let it sit naturally in the header flow */
+}
+.logo-top-left img {
+    /* Ensure consistency with the height of the main navigation links */
+    height: 55px; 
+    width: auto;
+}
+.navbar nav {
+    /* Align the nav links to the right */
+    display: flex;
+    align-items: center;
+}
+
+
+/* 3. Main Content Area (The Light Beige Section) */
+.about-content {
+    background-color: #EDE8E1; /* Light beige background */
+    color: #333;
+    padding: 80px 10%; /* General padding */
+    min-height: calc(100vh - 100px); /* Fill the rest of the screen */
+    position: relative;
+}
+
+.content-wrapper {
+    display: flex;
+    gap: 50px;
+    align-items: flex-start; /* Align sections to the top */
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* 4. Image Section */
+.about-image-section {
+    flex: 0 0 500px; /* Fixed width for the image block */
+    max-width: 45%;
+}
+
+.drinks-group {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+}
+
+/* 5. Text Section */
+.about-text-section {
+    flex: 1; /* Takes up the remaining space */
+    padding-top: 20px; /* Adjust spacing */
+}
+
+.about-text-section h1 {
+    font-size: 3.5rem; /* Large and bold heading */
+    font-weight: 700;
+    margin-bottom: 2rem;
+    line-height: 1;
+    color: #333;
+    /* You may need to import the specific serif font used for the heading */
+}
+
+.about-text-section p {
+    font-size: 1rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+    color: #4A4A4A;
+}
+
+/* 6. Testimonial Button */
+.testimonial-container {
+    display: flex;
+    justify-content: flex-end; /* Align to the right side */
+    padding: 50px 0 0;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.testimonial-button {
+    background-color: #D3A77C; /* Light brown/tan color */
+    color: #333;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 30px;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.2s;
+}
+
+.testimonial-button:hover {
+    background-color: #b78a63;
+}
+
+/* Media Query for Responsiveness */
+@media (max-width: 900px) {
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    .about-image-section {
+        max-width: 90%;
+        margin-bottom: 30px;
+    }
+}

@@ -6,6 +6,13 @@
     font-family: "Georgia", serif;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative; /* For absolute positioning of header and logo */
+}
+
 body {
     background: #2b1a13;
     color: #fff;
@@ -23,20 +30,6 @@ header {
     height: 55px;
 }
 
-nav a {
-    margin-left: 28px;
-    text-decoration: none;
-    background: #eee;
-    padding: 10px 28px;
-    border-radius: 25px;
-    color: #000;
-    font-weight: bold;
-}
-
-nav a.active {
-    background: #5d3a2c;
-    color: #fff;
-}
 
 body {
     background: #111;
@@ -139,4 +132,43 @@ background: #d6c9bd;
     color: #3b2b25;
     font-size: 17px;
     font-weight: bold;
+}
+
+.navbar {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 10; /* Ensure it's on top of everything */
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #333; /* Default dark color */
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Styling the first 'Home' button differently as per the image */
+.navbar nav ul li:nth-child(2) a {
+    background-color: #EDE8E1; /* Light beige background for 'Home' */
+    color: #333; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar nav ul li:not(:nth-child(2)) a {
+    color: #EDE8E1; /* Light text for the other links on the dark background */
+}
+
+/* Hover effect */
+.navbar nav ul li a:hover {
+    background-color: rgba(237, 232, 225, 0.8);
+    color: #333;
 }
