@@ -1,0 +1,185 @@
+/* --- ABOUT US Page Specific Styles --- */
+
+/* 1. Overall Layout */
+.page-container {
+    /* Assuming the whole page background is the dark brown from the header */
+    background-color: #492E20; 
+    min-height: 100vh;
+}
+
+/* 2. Header/Navbar adjustments for this page */
+.navbar {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 10; /* Ensure it's on top of everything */
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #333; /* Default dark color */
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Styling the first 'Home' button differently as per the image */
+.navbar nav ul li:nth-child(4) a {
+    background-color: #EDE8E1; /* Light beige background for 'Home' */
+    color: #333; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar nav ul li:not(:nth-child(4)) a {
+    color: #EDE8E1; /* Light text for the other links on the dark background */
+}
+
+/* Hover effect */
+.navbar nav ul li a:hover {
+    background-color: rgba(237, 232, 225, 0.8);
+    color: #cea563;
+}
+.logo-top-left {
+    position: static; /* Let it sit naturally in the header flow */
+}
+.logo-top-left img {
+    /* Ensure consistency with the height of the main navigation links */
+    height: 55px; 
+    width: auto;
+}
+.navbar nav {
+    /* Align the nav links to the right */
+    display: flex;
+    align-items: center;
+}
+
+
+body {
+    margin: 0;
+    background: #2e2e2e;
+    font-family: "Poppins", sans-serif;
+}
+
+.contact-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 100px;
+    background: #4b2d1f;
+    color: #fff;
+}
+
+.contact-left {
+    position: relative;
+    width: 50%;
+    padding-left: 20px;
+}
+
+.contact-left h1 {
+    font-size: 70px;
+    line-height: 1.1;
+}
+
+.contact-left .thin {
+    font-weight: 300;
+}
+
+.contact-left .bold {
+    font-weight: 700;
+}
+
+.cup {
+    position: absolute;
+    width: 180px;
+}
+
+/* Adjust based on your real images */
+.cup-1 {
+    left: 40px;
+    top: 180px;
+}
+.cup-2 {
+    left: 200px;
+    top: 280px;
+}
+.cup-3 {
+    left: 360px;
+    top: 200px;
+}
+
+.contact-right {
+    width: 45%;
+    background: #f3f3f3;
+    padding: 30px;
+    border-radius: 16px;
+    color: #333;
+    position: relative;
+}
+
+.contact-form .row {
+    display: flex;
+    gap: 20px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.field label {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.field input,
+.field textarea {
+    padding: 10px;
+    border: 1px solid #999;
+    border-radius: 6px;
+    background: #fff;
+}
+
+.field textarea {
+    resize: none;
+    height: 90px;
+}
+
+.submit-btn {
+    padding: 10px 25px;
+    background: #4b2d1f;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.submit-btn:hover {
+    background: #3a2217;
+}
+
+.contact-socials {
+    margin-top: 20px;
+}
+
+.contact-socials .icon {
+    width: 18px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.bean {
+    width: 120px;
+    position: absolute;
+    bottom: 10px;
+    right: -60px;
+}

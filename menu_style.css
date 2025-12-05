@@ -1,0 +1,174 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Georgia", serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative; /* For absolute positioning of header and logo */
+}
+
+body {
+    background: #2b1a13;
+    color: #fff;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 60px;
+}
+
+.logo img {
+    height: 55px;
+}
+
+
+body {
+    background: #111;
+    font-family: "Poppins", sans-serif;
+    margin: 0;
+    padding: 0;
+}
+ 
+.menu-section {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 50px 20px;
+    flex-wrap: wrap;
+}
+.menu-card {
+    position: relative;
+    width: 250px;
+    height: 450px;
+    background: #f5eee7;
+    border-radius: 30px;
+    overflow: hidden;
+    cursor: pointer;
+    padding-top: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+}
+
+.main-img {
+    width: 180px;
+    position: relative;
+    z-index: 2;
+    transition: transform 0.4s ease;
+}
+
+.menu-card:hover .main-img {
+    transform: scale(1.07);
+}
+
+.bg-decor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0.6;
+    z-index: 1;
+    transform: scale(1);
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+.menu-card:hover .bg-decor {
+    transform: scale(1.15);
+    opacity: 0.9;
+}
+
+.label {
+    background: #d6c9bd;
+    display: inline-block;
+    margin-top: 15px;
+    padding: 12px 22px;
+    border-radius: 12px;
+    color: #3b2b25;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.label1 {
+background: #d6c9bd;
+    display: inline-block;
+    margin-top: 45px;
+    padding: 12px 22px;
+    border-radius: 12px;
+    color: #3b2b25;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.label2 {
+background: #d6c9bd;
+    display: inline-block;
+    margin-top: 85px;
+    padding: 12px 22px;
+    border-radius: 12px;
+    color: #3b2b25;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.label3 {
+background: #d6c9bd;
+    display: inline-block;
+    margin-top: 35px;
+    padding: 12px 22px;
+    border-radius: 12px;
+    color: #3b2b25;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.navbar {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    z-index: 10; /* Ensure it's on top of everything */
+}
+
+.navbar nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+}
+
+.navbar nav ul li a {
+    text-decoration: none;
+    color: #333; /* Default dark color */
+    font-size: 1rem;
+    padding: 8px 15px;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Styling the first 'Home' button differently as per the image */
+.navbar nav ul li:nth-child(2) a {
+    background-color: #EDE8E1; /* Light beige background for 'Home' */
+    color: #333; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.navbar nav ul li:not(:nth-child(2)) a {
+    color: #EDE8E1; /* Light text for the other links on the dark background */
+}
+
+/* Hover effect */
+.navbar nav ul li a:hover {
+    background-color: rgba(237, 232, 225, 0.8);
+    color: #333;
+}
