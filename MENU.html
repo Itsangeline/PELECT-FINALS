@@ -1,11 +1,157 @@
-<!-- PAGE 2 -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Café Menu</title>
-    <link rel="stylesheet" href="menu_style.css">    
+    <link rel="stylesheet" href="menu_style.css">
+    <style>
+        /* Additional styles for detailed menu */
+        .detailed-menu {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(43, 26, 19, 0.95);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 30px;
+        }
+
+        .detailed-menu.active {
+            display: block;
+        }
+
+        .detailed-menu-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #f5eee7;
+            border-radius: 30px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+        }
+
+        .back-btn {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            background: #8B4513;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .back-btn:hover {
+            background: #A0522D;
+            transform: translateY(-3px);
+        }
+
+        .detailed-menu h2 {
+            text-align: center;
+            color: #3b2b25;
+            margin-bottom: 40px;
+            font-size: 2.5rem;
+        }
+
+        .menu-items {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .menu-item {
+            background: white;
+            border-radius: 20px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .menu-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        .menu-item h3 {
+            color: #8B4513;
+            margin-bottom: 10px;
+            font-size: 1.4rem;
+        }
+
+        .menu-item p {
+            color: #5d4037;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .menu-item .price {
+            font-weight: bold;
+            color: #3b2b25;
+            font-size: 1.2rem;
+        }
+
+        .menu-item .add-btn {
+            background: #8B4513;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-item .add-btn:hover {
+            background: #A0522D;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            background: #8B4513;
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            z-index: 1001;
+        }
+
+        .close-btn:hover {
+            background: #A0522D;
+            transform: rotate(90deg);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .detailed-menu-content {
+                padding: 20px;
+            }
+            
+            .menu-items {
+                grid-template-columns: 1fr;
+            }
+            
+            .detailed-menu h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -14,44 +160,41 @@
         <img src="pics/logo.png" alt="Cafe Logo">
     </div>
 
-
-    <header class="navbar">
-        <nav>
-            <ul>
-                <li><a href="HOME.html">Home</a></li>
-                <li class="active-item"><a href="MENU.html">Menu</a></li>
-                <li><a href="ABOUT_US.html">About Us</a></li>
-                <li><a href="CONTACT.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+        <ul>
+            <li><a href="HOME.html">Home</a></li>
+            <li class="active-item"><a href="MENU.html">Menu</a></li>
+            <li><a href="ABOUT_US.html">About Us</a></li>
+            <li><a href="CONTACT.html">Contact</a></li>
+        </ul>
+    </nav>
 </header>
 
 <section class="menu-section">
 
-    <!-- CARD 1 -->
-    <div class="menu-card">
+    <!-- CARD 1 - Coffee Beverages -->
+    <div class="menu-card" onclick="showDetailedMenu('coffee')">
         <img src="pics/coffee1.png" class="main-img" alt="Coffee">
         <img class="bg-decor" src="pics/beans.png" alt="Decor">
         <div class="label">Coffee Beverages</div>
     </div>
 
-    <!-- CARD 2 -->
-    <div class="menu-card">
+    <!-- CARD 2 - Non-Coffee Drinks -->
+    <div class="menu-card" onclick="showDetailedMenu('non-coffee')">
         <img src="pics/coffee2.png" class="main-img" alt="Non-Coffee">
         <img class="bg-decor" src="pics/choco.png" alt="Decor">
         <div class="label1">Non-Coffee Drinks</div>
     </div>
 
-    <!-- CARD 3 -->
-    <div class="menu-card">
+    <!-- CARD 3 - Pastries & Snacks -->
+    <div class="menu-card" onclick="showDetailedMenu('pastries')">
         <img src="pics/cookies1.png" class="main-img" alt="Snacks">
         <img class="bg-decor" src="pics/cookiesbg.png" alt="Decor">
         <div class="label2">Pastries & Snacks</div>
     </div>
 
-    <!-- CARD 4 -->
-    <div class="menu-card">
+    <!-- CARD 4 - Special Offers -->
+    <div class="menu-card" onclick="showDetailedMenu('specials')">
         <img src="pics/coffee3.png" class="main-img" alt="Specials">
         <img class="bg-decor" src="pics/leaf.png" alt="Decor">
         <div class="label3">Special Offers</div>
@@ -59,6 +202,131 @@
 
 </section>
 
+<!-- Detailed Menu Container -->
+<div class="detailed-menu" id="detailed-menu">
+    <button class="back-btn" onclick="hideDetailedMenu()">← Back to Menu</button>
+    <button class="close-btn" onclick="hideDetailedMenu()">×</button>
+    
+    <div class="detailed-menu-content" id="detailed-content">
+        <!-- Content will be dynamically inserted here -->
+    </div>
+</div>
+
+<script>
+    // Detailed menu data for each category
+    const menuData = {
+        coffee: {
+            title: "Coffee Beverages",
+            items: [
+                { name: "Espresso", description: "Rich and bold Italian coffee", price: "₱100" },
+                { name: "Cappuccino", description: "Espresso with steamed milk foam", price: "₱85" },
+                { name: "Latte", description: "Smooth espresso with steamed milk", price: "$₱70" },
+                { name: "Americano", description: "Espresso diluted with hot water", price: "₱90" },
+                { name: "Mocha", description: "Espresso with chocolate and milk", price: "₱110" },
+                { name: "Macchiato", description: "Espresso marked with milk foam", price: "₱85" }
+            ]
+        },
+        'non-coffee': {
+            title: "Non-Coffee Drinks",
+            items: [
+                { name: "Hot Chocolate", description: "Rich creamy chocolate drink", price: "₱150" },
+                { name: "Chai Latte", description: "Spiced tea with steamed milk", price: "₱120" },
+                { name: "Herbal Tea", description: "Selection of herbal infusions", price: "₱50" },
+                { name: "Fruit Smoothie", description: "Fresh blended fruits", price: "₱200" },
+                { name: "Iced Tea", description: "Refreshing cold-brewed tea", price: "₱70" },
+                { name: "Lemonade", description: "Freshly squeezed lemon drink", price: "₱70" }
+            ]
+        },
+        pastries: {
+            title: "Pastries & Snacks",
+            items: [
+                { name: "Croissant", description: "Buttery French pastry", price: "₱130" },
+                { name: "Blueberry Muffin", description: "Fresh blueberries in moist muffin", price: "140" },
+                { name: "Chocolate Chip Cookie", description: "Warm homemade cookie", price: "₱60" },
+                { name: "Cinnamon Roll", description: "Sweet spiral pastry with cinnamon", price: "₱100" },
+                { name: "Bagel with Cream Cheese", description: "Fresh bagel with cream cheese", price: "₱110" },
+                { name: "Sandwich of the Day", description: "Freshly made sandwich", price: "₱69" }
+            ]
+        },
+        specials: {
+            title: "Special Offers",
+            items: [
+                { name: "Morning Combo", description: "Coffee + Pastry", price: "₱120" },
+                { name: "Afternoon Tea", description: "Tea + 2 Pastries", price: "₱100" },
+                { name: "Weekend Brunch", description: "Coffee + Sandwich + Dessert", price: "₱300" },
+                { name: "Student Discount", description: "20% off for students", price: "20% OFF" },
+                { name: "Happy Hour", description: "Drinks 2-for-1 (3-5pm)", price: "2x1" },
+                { name: "Loyalty Card", description: "10th drink free", price: "FREE" }
+            ]
+        }
+    };
+
+    function showDetailedMenu(category) {
+        const detailedMenu = document.getElementById('detailed-menu');
+        const detailedContent = document.getElementById('detailed-content');
+        const data = menuData[category];
+        
+        // Create the detailed menu content
+        let content = `<h2>${data.title}</h2>`;
+        content += '<div class="menu-items">';
+        
+        data.items.forEach(item => {
+            content += `
+                <div class="menu-item">
+                    <h3>${item.name}</h3>
+                    <p>${item.description}</p>
+                    <div class="price">${item.price}</div>
+                    <button class="add-btn" onclick="addToOrder('${item.name}')">Add to Order</button>
+                </div>
+            `;
+        });
+        
+        content += '</div>';
+        detailedContent.innerHTML = content;
+        
+        // Show the detailed menu
+        detailedMenu.classList.add('active');
+    }
+
+    function hideDetailedMenu() {
+        const detailedMenu = document.getElementById('detailed-menu');
+        detailedMenu.classList.remove('active');
+    }
+
+    function addToOrder(itemName) {
+        // Create a temporary notification
+        const notification = document.createElement('div');
+        notification.style.position = 'fixed';
+        notification.style.bottom = '20px';
+        notification.style.right = '20px';
+        notification.style.background = '#8B4513';
+        notification.style.color = 'white';
+        notification.style.padding = '15px 25px';
+        notification.style.borderRadius = '25px';
+        notification.style.boxShadow = '0 5px 15px rgba(0,0,0,0.3)';
+        notification.style.zIndex = '2000';
+        notification.style.transition = 'all 0.3s ease';
+        notification.textContent = `${itemName} added to order!`;
+        
+        document.body.appendChild(notification);
+        
+        // Animate and remove notification after 3 seconds
+        setTimeout(() => {
+            notification.style.transform = 'translateY(20px)';
+            notification.style.opacity = '0';
+            setTimeout(() => {
+                document.body.removeChild(notification);
+            }, 300);
+        }, 2700);
+    }
+
+    // Close detailed menu when clicking outside the content
+    document.getElementById('detailed-menu').addEventListener('click', function(e) {
+        if (e.target === this) {
+            hideDetailedMenu();
+        }
+    });
+</script>
+
 </body>
 </html>
-<!-- PAGE 2 -->
